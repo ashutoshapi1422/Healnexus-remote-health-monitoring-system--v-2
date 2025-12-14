@@ -106,9 +106,9 @@ export function Chatbot() {
                         <Button
                             onClick={() => setIsOpen(!isOpen)}
                             className={cn(
-                                "fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-2xl transition-all duration-300 z-[9999]",
+                                "fixed bottom-10 right-10 h-16 w-16 rounded-full shadow-2xl transition-all duration-300 z-[9999]",
                                 "bg-gradient-to-br from-primary to-primary/80 border-4 border-white/10 backdrop-blur-sm",
-                                "hover:scale-110 hover:shadow-primary/40",
+                                "hover:scale-110 hover:shadow-primary/40 no-default-hover-elevate no-default-active-elevate !fixed",
                                 isOpen ? "rotate-90 from-destructive to-destructive/80 hover:bg-destructive" : "hover:bg-primary"
                             )}
                         >
@@ -123,13 +123,13 @@ export function Chatbot() {
 
             {/* Pulse Effect (only when closed) */}
             {!isOpen && (
-                <div className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-primary/30 animate-ping z-[9998] pointer-events-none" />
+                <div className="fixed bottom-10 right-10 h-16 w-16 rounded-full bg-primary/30 animate-ping z-[9998] pointer-events-none" />
             )}
 
             {/* Chat Window */}
             <div
                 className={cn(
-                    "fixed bottom-20 left-4 right-4 sm:left-auto sm:right-6 sm:w-[400px] transition-all duration-300 z-[9999]",
+                    "fixed bottom-32 left-4 right-4 sm:left-auto sm:right-10 sm:w-[400px] transition-all duration-300 z-[9999]",
                     isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
                 )}
             >
@@ -157,12 +157,12 @@ export function Chatbot() {
                     </CardHeader>
                     <CardContent className="p-0">
                         <ScrollArea className="h-[400px] p-4">
-                            <div className="flex flex-col gap-4">
+                            <div className="flex flex-col gap-4 pr-4">
                                 {messages.map((msg, i) => (
                                     <div
                                         key={i}
                                         className={cn(
-                                            "flex w-fit max-w-[85%] flex-col gap-2 rounded-lg px-3 py-2 text-sm break-words whitespace-pre-wrap",
+                                            "flex w-fit max-w-[80%] flex-col gap-2 rounded-lg px-3 py-2 text-sm break-words whitespace-pre-wrap",
                                             msg.role === "user"
                                                 ? "ml-auto bg-primary text-primary-foreground"
                                                 : "bg-muted"

@@ -90,7 +90,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log("Initializing Gemini with key:", process.env.GEMINI_API_KEY ? "Present" : "Missing");
       const { GoogleGenerativeAI } = await import("@google/generative-ai");
       const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
       const prompt = `
         You are a health assistant chatbot for the HealNexus dashboard.
